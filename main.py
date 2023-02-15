@@ -1,11 +1,12 @@
 import pygame
+
 from binary_tree import Node
 
 pygame.init()
 window = pygame.display.set_mode((800, 600))
 
-# Need to update this to take users input
-root = Node(1, Node(2, Node(4), Node(5)), Node(3, Node(6), Node(7)))
+# Define the binary tree
+root = Node(1, Node(2, Node(4, Node(5)), Node(6)), Node(3, None, Node(7)))
 
 def draw_tree(node, x, y):
     if node:
@@ -21,8 +22,6 @@ def draw_tree(node, x, y):
         if node.right:
             pygame.draw.line(window, (0,128,128), (x, y-15), (x+50, y+50))
             draw_tree(node.right, x+50, y+50)
-
-
 
 def main():
     running = True
